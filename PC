@@ -1,0 +1,46 @@
+package DAKhoMayTinh;
+
+public class PC extends MayTinh {
+
+    private double Nguon;
+    private String BoMachChu, Case;
+
+    public PC() {
+    }
+
+    public PC(String Name, String NSX, String Code, String CPU, String CardDoHoa, double RAM, double ROM, int Price, NgayNhapXuat date,double Nguon, String BoMachChu, String Case) {
+        super(Name, NSX, Code, CPU, CardDoHoa, RAM, ROM, Price, date);
+        this.Nguon = Nguon;
+        this.BoMachChu = BoMachChu;
+        this.Case = Case;
+    }
+
+    public double getNguon() {
+        return Nguon;
+    }
+
+    public void setNguon(double Nguon) {
+        this.Nguon = Nguon;
+    }
+
+    public String getBoMachChu() {
+        return BoMachChu;
+    }
+
+    public void setBoMachChu(String BoMachChu) {
+        this.BoMachChu = BoMachChu;
+    }
+
+    public String getCase() {
+        return Case;
+    }
+
+    public void setCase(String Case) {
+        this.Case = Case;
+    }
+
+    @Override
+    public String toString() {
+        return "PC{" + super.toString() + ", Nguon=" + Nguon + " W" + ", BoMachChu=" + BoMachChu + ", Case=" + Case + '}';
+    }
+}
