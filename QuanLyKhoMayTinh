@@ -1,0 +1,126 @@
+package DAKhoMayTinh;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Scanner;
+
+public class QuanLyKhoMayTinh {
+
+    ArrayList<MayTinh> mtn = new ArrayList<>();
+
+    Scanner sc = new Scanner(System.in);
+
+    public void them_may_tinh(MayTinh mt) {
+        mtn.add(mt);
+    }
+
+    public void in_thong_tin() {
+        for (MayTinh mayTinh : mtn) {
+            System.out.println(mayTinh.toString());
+        }
+    }
+
+    public void in_PC() {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh instanceof PC) {
+                System.out.println(mayTinh.toString());
+            }
+        }
+    }
+
+    public void in_Laptop() {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh instanceof Laptop) {
+                System.out.println(mayTinh.toString());
+            }
+        }
+    }
+
+    public void in_MayTinhBang() {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh instanceof MayTinhBang) {
+                System.out.println(mayTinh.toString());
+            }
+        }
+    }
+
+    public int kiem_tra_so_luong() {
+        return mtn.size();
+    }
+
+    public void tim_may_theo_ten(String name) {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh.getName().indexOf(name) >= 0) {
+                System.out.println(mayTinh);
+            }
+        }
+    }
+
+    public void tim_may_theo_code(String code) {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh.getCode().indexOf(code) >= 0) {
+                System.out.println(mayTinh);
+            }
+        }
+    }
+
+    public void tim_may_theo_tenvacode(String name, String code) {
+        for (MayTinh mayTinh : mtn) {
+            if (mayTinh.getName().indexOf(name) >= 0 && mayTinh.getCode().indexOf(code) >= 0) {
+                System.out.println(mayTinh);
+            }
+        }
+    }
+
+    public void kiem_tra_ton_tai(String code) {
+        for (MayTinh mayTinh : mtn) {
+            if (mtn.contains(code)) {
+                System.out.println(mayTinh);
+            }
+        }
+    }
+
+    public void sap_xep_gia_giam() {
+        Collections.sort(mtn, new Comparator<MayTinh>() {
+            @Override
+            public int compare(MayTinh mt1, MayTinh mt2) {
+                if (mt1.getPrice() > mt2.getPrice()) {
+                    return -1;
+                } else if (mt1.getPrice() < mt2.getPrice()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public void sap_xep_gia_tang() {
+        Collections.sort(mtn, new Comparator<MayTinh>() {
+            @Override
+            public int compare(MayTinh mt1, MayTinh mt2) {
+                if (mt1.getPrice() < mt2.getPrice()) {
+                    return -1;
+                } else if (mt1.getPrice() > mt2.getPrice()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+
+    public boolean xoa_mot_may_tinh_theo_code(MayTinh mt) {
+        return mtn.remove(mt);
+    }
+
+    public void ngay_xuat_kho() {
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        System.out.print("Thoi gian xuat may tinh cua he thong: " + date);
+        System.out.println("\n");
+    }
+}
