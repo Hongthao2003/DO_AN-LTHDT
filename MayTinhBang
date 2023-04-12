@@ -1,0 +1,64 @@
+package DAKhoMayTinh;
+
+public class MayTinhBang extends MayTinh {
+
+    private String Screen, Size, ManCamUng;
+    private double PIN, Camera;
+
+    public MayTinhBang() {
+    }
+
+    public MayTinhBang(String Name, String NSX, String Code, String CPU, String CardDoHoa, double RAM, double ROM, int Price, NgayNhapXuat date, String Screen, String Size, String ManCamUng, double PIN, double Camera) {
+        super(Name, NSX, Code, CPU, CardDoHoa, RAM, ROM, Price, date);
+        this.Screen = Screen;
+        this.Size = Size;
+        this.ManCamUng = ManCamUng;
+        this.PIN = PIN;
+        this.Camera = Camera;
+    }
+
+    public String getScreen() {
+        return Screen;
+    }
+
+    public void setScreen(String Screen) {
+        this.Screen = Screen;
+    }
+
+    public String getSize() {
+        return Size;
+    }
+
+    public void setSize(String Size) {
+        this.Size = Size;
+    }
+
+    public String getManCamUng() {
+        return ManCamUng;
+    }
+
+    public void setManCamUng(String ManCamUng) {
+        this.ManCamUng = ManCamUng;
+    }
+
+    public double getPIN() {
+        return PIN;
+    }
+
+    public void setPIN(double PIN) {
+        this.PIN = PIN;
+    }
+
+    public double getCamera() {
+        return Camera;
+    }
+
+    public void setCamera(double Camera) {
+        this.Camera = Camera;
+    }
+
+    @Override
+    public String toString() {
+        return "MayTinhBang{" + super.toString() + ", Screen=" + Screen + ", Size=" + Size + ", ManCamUng=" + ManCamUng + ", PIN=" + PIN + "mAh" + ", Camera= " + Camera + '}';
+    }
+}
