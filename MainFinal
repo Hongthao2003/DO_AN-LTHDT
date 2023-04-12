@@ -1,0 +1,379 @@
+package DAKhoMayTinh;
+
+import java.util.Scanner;
+
+public class MainFinal {
+
+    public static void main(String[] args) {
+        QuanLyKhoMayTinh qlkm = new QuanLyKhoMayTinh();
+        Scanner sc = new Scanner(System.in);
+        int menu;
+
+        do {
+            System.out.println("Menu lua chon chuc nang---------------------------");
+            System.out.println("1.  Them thong tin may tinh");
+            System.out.println("2.  In thong tin toan bo may tinh co trong kho");
+            System.out.println("3.  Chi in thong tin PC");
+            System.out.println("4.  Chi in thong tin Laptop");
+            System.out.println("5.  Chi in thong tin May Tinh Bang");
+            System.out.println("6.  Kiem tra so luong may trong kho");
+            System.out.println("7.  Tim kiem may theo ten");
+            System.out.println("8.  Tim kiem may theo code");
+            System.out.println("9.  Tim kiem may theo ten va code");
+            System.out.println("10. Sap xep may theo gia giam");
+            System.out.println("11. Sap xep may theo gia tang");
+            System.out.println("12. Xoa mot may tinh theo ma code");
+            System.out.println("13. Xuat kho");
+            System.out.println("0.  Thoat chuong trinh-Xin cam on");
+            System.out.print("Nhap: ");
+            menu = sc.nextInt();
+
+            switch (menu) {
+                case 1:
+                    int menu_1;
+                    do {
+
+                        System.out.println("Menu----------");
+                        System.out.println("1. PC");
+                        System.out.println("2. Laptop");
+                        System.out.println("3. May Tinh Bang");
+                        System.out.println("0. Quay lai chuong trinh");
+                        System.out.print("Nhap: ");
+                        menu_1 = sc.nextInt();
+
+                        switch (menu_1) {
+                            case 1: {
+                                sc.nextLine();
+                                System.out.print("Nhap ten: ");
+                                String Name = sc.nextLine();
+
+                                System.out.print("Nhap NSX: ");
+                                String NSX = sc.nextLine();
+
+                                System.out.print("Nhap Code: ");
+                                String Code = sc.nextLine();
+
+                                System.out.print("Nhap CPU: ");
+                                String CPU = sc.nextLine();
+
+                                System.out.print("Nhap Card Do Hoa: ");
+                                String CardDoHoa = sc.nextLine();
+
+                                System.out.print("Nhap RAM: ");
+                                double RAM = sc.nextDouble();
+
+                                System.out.print("Nhap ROM: ");
+                                double ROM = sc.nextDouble();
+
+                                System.out.print("Nhap Gia: ");
+                                int Price = sc.nextInt();
+
+                                System.out.print("Nhap nguon: ");
+                                double Nguon = sc.nextDouble();
+
+                                sc.nextLine();
+                                System.out.print("Nhap bo mach chu: ");
+                                String BoMachChu = sc.nextLine();
+
+                                System.out.print("Nhap vao vo may tinh: ");
+                                String Case = sc.nextLine();
+
+                                NgayNhapXuat date = new NgayNhapXuat();
+                                System.out.print("Nhap vao nam hien tai: ");
+                                int namhientai = sc.nextInt();
+
+                                System.out.println("Nhap vao dd/mm/yyyy");
+                                System.out.print("Nhap dd: ");
+                                date.setDay(sc.nextInt());
+                                if (date.getDay() < 1 || date.getDay() > 31) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai ngay: ");
+                                        date.setDay(sc.nextInt());
+                                    } while (date.getDay() < 1 || date.getDay() > 31);
+                                }
+
+                                System.out.print("Nhap mm: ");
+                                date.setMonth(sc.nextInt());
+                                if (date.getMonth() < 1 || date.getMonth() > 12) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai thang: ");
+                                        date.setMonth(sc.nextInt());
+                                    } while (date.getMonth() < 1 || date.getMonth() > 12);
+                                }
+
+                                System.out.print("Nhap yyyy: ");
+                                date.setYear(sc.nextInt());
+                                if (date.getYear() < 1943 || date.getYear() > namhientai) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai nam: ");
+                                        date.setYear(sc.nextInt());
+                                    } while (date.getYear() < 1943 || date.getYear() > namhientai);
+                                }
+
+                                MayTinh mt = new PC(Name, NSX, Code, CPU, CardDoHoa, RAM, ROM, Price, date, Nguon, BoMachChu, Case);
+                                qlkm.them_may_tinh(mt);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            case 2: {
+                                sc.nextLine();
+                                System.out.print("Nhap ten: ");
+                                String Name = sc.nextLine();
+
+                                System.out.print("Nhap NSX: ");
+                                String NSX = sc.nextLine();
+
+                                System.out.print("Nhap Code: ");
+                                String Code = sc.nextLine();
+
+                                System.out.print("Nhap CPU: ");
+                                String CPU = sc.nextLine();
+
+                                System.out.print("Nhap Card Do Hoa: ");
+                                String CardDoHoa = sc.nextLine();
+
+                                System.out.print("Nhap kich co: ");
+                                String Size = sc.nextLine();
+
+                                System.out.print("Nhap man hinh: ");
+                                String Screen = sc.nextLine();
+
+                                System.out.print("Nhap RAM: ");
+                                double RAM = sc.nextDouble();
+
+                                System.out.print("Nhap ROM: ");
+                                double ROM = sc.nextDouble();
+
+                                System.out.print("Nhap Gia: ");
+                                int Price = sc.nextInt();
+
+                                System.out.print("Nhap do phan giai camera: ");
+                                double Camera = sc.nextDouble();
+
+                                System.out.print("Nhap dung luong PIN: ");
+                                double PIN = sc.nextDouble();
+
+                                System.out.print("Nhap true hoac false cho man hinh cam ung tren Laptop: ");
+                                boolean CamUngMan = sc.nextBoolean();
+
+                                NgayNhapXuat date = new NgayNhapXuat();
+                                System.out.print("Nhap vao nam hien tai: ");
+                                int namhientai = sc.nextInt();
+
+                                System.out.println("Nhap vao dd/mm/yyyy");
+                                System.out.print("Nhap dd: ");
+                                date.setDay(sc.nextInt());
+                                if (date.getDay() < 1 || date.getDay() > 31) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai ngay: ");
+                                        date.setDay(sc.nextInt());
+                                    } while (date.getDay() < 1 || date.getDay() > 31);
+                                }
+
+                                System.out.print("Nhap mm: ");
+                                date.setMonth(sc.nextInt());
+                                if (date.getMonth() < 1 || date.getMonth() > 12) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai thang: ");
+                                        date.setMonth(sc.nextInt());
+                                    } while (date.getMonth() < 1 || date.getMonth() > 12);
+                                }
+
+                                System.out.print("Nhap yyyy: ");
+                                date.setYear(sc.nextInt());
+                                if (date.getYear() < 1943 || date.getYear() > namhientai) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai nam: ");
+                                        date.setYear(sc.nextInt());
+                                    } while (date.getYear() < 1943 || date.getYear() > namhientai);
+                                }
+
+                                MayTinh mt = new Laptop(Name, NSX, Code, CPU, CardDoHoa, RAM, ROM, Price, date, Size, Screen, Camera, PIN, CamUngMan);
+                                qlkm.them_may_tinh(mt);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            case 3: {
+                                sc.nextLine();
+                                System.out.print("Nhap ten: ");
+                                String Name = sc.nextLine();
+
+                                System.out.print("Nhap NSX: ");
+                                String NSX = sc.nextLine();
+
+                                System.out.print("Nhap Code: ");
+                                String Code = sc.nextLine();
+
+                                System.out.print("Nhap CPU: ");
+                                String CPU = sc.nextLine();
+
+                                System.out.print("Nhap Card Do Hoa: ");
+                                String CardDoHoa = sc.nextLine();
+
+                                System.out.print("Nhap kich co: ");
+                                String Size = sc.nextLine();
+
+                                System.out.print("Nhap man hinh: ");
+                                String Screen = sc.nextLine();
+
+                                System.out.print("Nhap loai man cam ung: ");
+                                String ManCamUng = sc.nextLine();
+
+                                System.out.print("Nhap RAM: ");
+                                double RAM = sc.nextDouble();
+
+                                System.out.print("Nhap ROM: ");
+                                double ROM = sc.nextDouble();
+
+                                System.out.print("Nhap Gia: ");
+                                int Price = sc.nextInt();
+
+                                System.out.print("Nhap do phan giai camera: ");
+                                double Camera = sc.nextDouble();
+
+                                System.out.print("Nhap dung luong PIN: ");
+                                double PIN = sc.nextDouble();
+
+                                NgayNhapXuat date = new NgayNhapXuat();
+                                System.out.print("Nhap vao nam hien tai: ");
+                                int namhientai = sc.nextInt();
+
+                                System.out.println("Nhap vao dd/mm/yyyy");
+                                System.out.print("Nhap dd: ");
+                                date.setDay(sc.nextInt());
+                                if (date.getDay() < 1 || date.getDay() > 31) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai ngay: ");
+                                        date.setDay(sc.nextInt());
+                                    } while (date.getDay() < 1 || date.getDay() > 31);
+                                }
+
+                                System.out.print("Nhap mm: ");
+                                date.setMonth(sc.nextInt());
+                                if (date.getMonth() < 1 || date.getMonth() > 12) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai thang: ");
+                                        date.setMonth(sc.nextInt());
+                                    } while (date.getMonth() < 1 || date.getMonth() > 12);
+                                }
+
+                                System.out.print("Nhap yyyy: ");
+                                date.setYear(sc.nextInt());
+                                if (date.getYear() < 1943 || date.getYear() > namhientai) {
+                                    do {
+                                        System.out.println("Khong hop le, nhap lai");
+                                        System.out.print("Nhap lai nam: ");
+                                        date.setYear(sc.nextInt());
+                                    } while (date.getYear() < 1943 || date.getYear() > namhientai);
+                                }
+
+                                MayTinh mt = new MayTinhBang(Name, NSX, Code, CPU, CardDoHoa, RAM, ROM, Price, date, Screen, Size, ManCamUng, PIN, Camera);
+                                qlkm.them_may_tinh(mt);
+                                System.out.println("Them thanh cong-----------");
+                            }
+                            break;
+                            default:
+                                if (menu_1 == 0) {
+                                    System.out.println("Thoat chuong trinh");
+                                } else {
+                                    System.out.println("Vui long nhap lai lua chon");
+                                }
+                        }
+                    } while (menu_1 != 0);
+                    break;
+                case 2:
+                    if (qlkm.kiem_tra_so_luong() == 0) {
+                        System.out.println("Hien khong co may trong kho");
+                    } else {
+                        System.out.println("So may hien tai la: " + qlkm.kiem_tra_so_luong());
+                    }
+                    qlkm.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                case 3:
+                    qlkm.in_PC();
+                    System.out.println("\n");
+                    break;
+                case 4:
+                    qlkm.in_Laptop();
+                    System.out.println("\n");
+                    break;
+                case 5:
+                    qlkm.in_MayTinhBang();
+                    System.out.println("\n");
+                    break;
+                case 6:
+                    System.out.println("So may hien tai la: " + qlkm.kiem_tra_so_luong());
+                    System.out.println("\n");
+                    break;
+                case 7:
+                    sc.nextLine();
+                    System.out.print("Nhap ten can tim: ");
+                    String Name = sc.nextLine();
+                    qlkm.tim_may_theo_ten(Name);
+                    System.out.println("\n");
+                    break;
+                case 8:
+                    sc.nextLine();
+                    System.out.print("Nhap Code can tim: ");
+                    String Code = sc.nextLine();
+                    qlkm.tim_may_theo_code(Code);
+                    System.out.println("\n");
+                    break;
+                case 9:
+                    sc.nextLine();
+                    System.out.print("Nhap ten can tim: ");
+                    Name = sc.nextLine();
+                    System.out.print("Nhap ten can tim: ");
+                    Code = sc.nextLine();
+                    qlkm.tim_may_theo_tenvacode(Name, Code);
+                    System.out.println("\n");
+                    break;
+                case 10:
+                    qlkm.sap_xep_gia_giam();
+                    System.out.println("Thong tin sau khi giam la: ");
+                    qlkm.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                case 11:
+                    qlkm.sap_xep_gia_tang();
+                    System.out.println("Thong tin sau khi tang la: ");
+                    qlkm.in_thong_tin();
+                    System.out.println("\n");
+                    break;
+                case 12:
+                    sc.nextLine();
+                    System.out.print("Nhap vao ma code can xoa: ");
+                    Code = sc.nextLine();
+                    MayTinh mt = new MayTinh(Code);
+                    qlkm.xoa_mot_may_tinh_theo_code(mt);
+                    break;
+                case 13:
+                    sc.nextLine();
+                    System.out.print("Nhap code: ");
+                    Code = sc.nextLine();
+                    qlkm.tim_may_theo_code(Code);
+                    MayTinh mtm1 = new MayTinh(Code);
+                    qlkm.xoa_mot_may_tinh_theo_code(mtm1);
+
+                    qlkm.ngay_xuat_kho();
+                    System.out.println("Da xuat kho!!!!!");
+                    break;
+                default:
+                    if (menu == 0) {
+                        System.out.println("Thoat chuong trinh");
+                    } else {
+                        System.out.println("Vui long nhap lai lua chon");
+                    }
+            }
+        } while (menu != 0);
+    }
+}
