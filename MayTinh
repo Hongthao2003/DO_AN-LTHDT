@@ -1,0 +1,125 @@
+package DAKhoMayTinh;
+
+public class MayTinh implements Comparable<MayTinh> {
+
+    private String Name, NSX, Code, CPU, CardDoHoa;
+    private double RAM, ROM; 
+    private int Price;
+    private NgayNhapXuat date;
+
+    public MayTinh() {
+    }
+
+    public MayTinh(String Code) {
+        this.Code = Code;
+    }
+    
+    public MayTinh(String Name, String NSX, String Code, String CPU, String CardDoHoa, double RAM, double ROM, int Price, NgayNhapXuat date) {
+        this.Name = Name;
+        this.NSX = NSX;
+        this.Code = Code;
+        this.CPU = CPU;
+        this.CardDoHoa = CardDoHoa;
+        this.RAM = RAM;
+        this.ROM = ROM;
+        this.Price = Price;
+        this.date = date;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
+    public String getNSX() {
+        return NSX;
+    }
+
+    public void setNSX(String NSX) {
+        this.NSX = NSX;
+    }
+
+    public String getCode() {
+        return Code;
+    }
+
+    public void setCode(String Code) {
+        this.Code = Code;
+    }
+
+    public String getCPU() {
+        return CPU;
+    }
+
+    public void setCPU(String CPU) {
+        this.CPU = CPU;
+    }
+
+    public String getCardDoHoa() {
+        return CardDoHoa;
+    }
+
+    public void setCardDoHoa(String CardDoHoa) {
+        this.CardDoHoa = CardDoHoa;
+    }
+
+    public double getRAM() {
+        return RAM;
+    }
+
+    public void setRAM(double RAM) {
+        this.RAM = RAM;
+    }
+
+    public double getROM() {
+        return ROM;
+    }
+
+    public void setROM(double ROM) {
+        this.ROM = ROM;
+    }
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public void setPrice(int Price) {
+        this.Price = Price;
+    }
+
+    public NgayNhapXuat getDate() {
+        return date;
+    }
+
+    public void setDate(NgayNhapXuat date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Name=" + Name + ", NSX=" + NSX + ", Code=" + Code + ", CPU=" + CPU + ", CardDoHoa=" + CardDoHoa + ", RAM=" + RAM + "GB" + ", ROM=" + ROM + "GB" + ", Price=" + Price + "k VNd" + ", date=" + date;
+    }
+    
+    @Override
+    public int compareTo(MayTinh o) {
+        return this.Code.compareTo(o.Code);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Code.compareTo(Code);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof MayTinh) {
+            MayTinh another = (MayTinh) obj;
+            if (this.Code.equals(another.Code)) {
+                return true;
+            }
+        }return false;
+    }
+}
